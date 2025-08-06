@@ -20,15 +20,16 @@ console.log(maiorNumero);
 // depois retorne a soma total
 const listaPrecos = ["R$ 59,99", " R$ 100,222", "R$ 230  ", "r$  200"];
 
-let somaPrecos = 0;
-function limparPrecos(){
-  listaPrecos.forEach((preco) =>{
-    preco = +preco.toUpperCase().replace("R$ ","").replace(",",".").trim();
-    let precoArredondado = Number(preco);
-    +precoArredondado.toFixed(2);
-      somaPrecos += preco;
-    console.log(precoArredondado)
-  })
+function limparPrecos(preco) {
+  preco = +preco.toUpperCase().replace("R$ ", "").replace(",", ".").trim();
+  preco = +preco.toFixed(2);
+
+  return preco;
 }
-limparPrecos();
-console.log(somaPrecos);
+
+let soma = 0;
+listaPrecos.forEach((preco)=>{
+  soma += limparPrecos(preco);
+})
+
+console.log(soma)
