@@ -61,3 +61,9 @@ const compras = [
   },
 ];
 
+const valorCompras = compras.reduce((acumulador, compra) =>{
+  const valorLimpo = +compra.preco.replace("R$", '').replace(',','.');
+  return acumulador + valorLimpo;
+},0)
+
+console.log(valorCompras);
