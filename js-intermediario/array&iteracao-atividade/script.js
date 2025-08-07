@@ -5,29 +5,27 @@ const cursos = document.querySelectorAll('.curso');
 
 const arrayCursos = Array.from(cursos);
 
-const objetoCursos = arrayCursos.map((curso) =>{
-    const titulo = curso.querySelector('h1').innerHTML;
-    const descricao = curso.querySelector('p').innerHTML;
-    const aula =  curso.querySelector('.aulas').innerHTML;
-    const hora =  curso.querySelector('.horas').innerHTML;
-  
-    return{
-      titulo,
-      descricao,
-      aula,
-      hora
-    }
-})
-console.log(objetoCursos);
+const objetosCursos = arrayCursos.map((curso) =>{
+  const titulo = curso.querySelector('h1').innerHTML;
+  const descricao = curso.querySelector('p').innerHTML;
+  const aulas = curso.querySelector('.aulas').innerHTML;
+  const horas = curso.querySelector('.horas').innerHTML;
 
+  return {
+    titulo,
+    descricao,
+    aulas,
+    horas,
+  }
+})
+console.log(objetosCursos);
 
 // Retorne uma lista com os
 // números maiores que 100
 const numeros = [3, 44, 333, 23, 122, 322, 33];
 const numerosMaiorQue100 = numeros.filter((numero) =>{
-  if(numero > 100){
-    return numero;
-    }
+    return numero > 100
+
 })
 console.log(numerosMaiorQue100);
 
