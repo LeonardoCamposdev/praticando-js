@@ -67,13 +67,13 @@ let html = `<ul>
 
 html = html.replaceAll("<span>", "<a>",).replaceAll("</span>", "</a>");
 
-console.log(html)
+console.log(html);
 
 // Retorne o último caracter da frase
 const frase = "Melhor do ano!";
 const ultimoCaracter = frase.slice(length-1);
 
-console.log(ultimoCaracter)
+console.log(ultimoCaracter);
 
 // Retorne o total de taxas
 const transacoes2 = [
@@ -89,7 +89,6 @@ transacoes2.forEach((item) =>{
   item = item.toLowerCase();
   item = item.trim();
   item = item.slice(0,4);
-
 
    if(item === 'taxa'){
        totalTaxas2++; 
