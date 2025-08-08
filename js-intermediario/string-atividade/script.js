@@ -1,6 +1,5 @@
 // Utilizando o foreach na array abaixo,
 // some os valores de Taxa e os valores de Recebimento
-
 const transacoes = [
   {
     descricao: "Taxa do Pão",
