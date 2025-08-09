@@ -1,6 +1,6 @@
 // Retorne a soma total de caracteres dos
 // parágrafos acima utilizando reduce
-const 
+
 
 
 // Crie uma função que retorne novos elementos
