@@ -11,22 +11,7 @@ console.log(verificarDado([]));
 // Crie um objeto quadrado com
 // a propriedade lados e torne
 // ela imutável
-const moto = {};
 
-Object.defineProperties(moto,{
-  rodas:{
-    value: 2,
-    writable: false,
-  },
-
-  cor:{
-    value: 'Vermelha',
-    writable: false,
-  }
-})
-
-moto.cor = 'azul';
-console.log(moto)
 
 // Previna qualquer mudança
 // no objeto abaixo
