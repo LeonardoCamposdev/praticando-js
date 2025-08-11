@@ -22,12 +22,23 @@ console.log(ravi.nomeCompleto());
 // Liste os métodos acessados por 
 // dados criados com NodeList,
 // HTMLCollection, Document
-console.log(Object.getOwnPropertyNames(NodeList.prototype));
-console.log(Object.getOwnPropertyNames(HTMLAllCollection.prototype));
-console.log(Object.getOwnPropertyNames(Document.prototype));
+console.log(NodeList.prototype);
+console.log(HTMLAllCollection.prototype);
+console.log(Document.prototype);
+
 
 // Liste os construtores dos dados abaixo
+const li = document.querySelector('li');
+
+li; //'HTMLLIElement'
+li.click; //'Function'
+li.innerText; //'String'
+li.value; // 'Number'
+li.hidden; // 'Boolean'
+li.offsetLeft // 'Number'
+li.click();  // undefined
 
 
 // Qual o construtor do dado abaixo:
-li.hidden.constructor.name;
+li.hidden.constructor.name; //String
+
