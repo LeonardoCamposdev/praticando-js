@@ -24,20 +24,23 @@ const bruno = new Pessoa('Bruno', 15);
 // elements, retorna NodeList com os elementos selecionados
 // addClass(classe), adiciona a classe a todos os elementos
 // removeClass(classe), remove a classe a todos os elementos
+function Dom(seletor){
+  const elementList = document.querySelectorAll(seletor);
 
-function Dom(){
-  this.seletor = 'li';
-   const elements = document.querySelectorAll(this.seletor);
+  this.elements = elementList;
+  this.addClass = function(classe){
+    this.elements.forEach((element) =>{
+      element.classList.add(classe);
+    })
+  }
 
-   elements.forEach((element)=>{
-    this.ativo = function(){
-      element.classList.add('ativo');
-    }
-   })
+  this.elements = elementList;
+  this.removeClass = function(classe){
+    this.elements.forEach((element) =>{
+      element.classList.remove(classe);
+    })
+  }
 }
 
-
-
-const novali = new Dom('li');
-console.log(novali.ativo());
-
+const novoElement = new Dom('li'); 
+novoElement.addClass('ativo');
