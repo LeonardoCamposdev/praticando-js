@@ -1,52 +1,42 @@
-export default function initToolTip() {
-  const tooltips = document.querySelectorAll("[data-tooltip]"); //1
+export default function initTooltip() {}
 
-  if (tooltips.length) {
-    function onMouseOver() { //4
-      const tooltipBox = criartooltipBox(this);
-      onMouseMove.tooltipBox = tooltipBox;
-      this.addEventListener("mousemove", onMouseMove);
+const tooltips = document.querySelectorAll("[data-tooltip]");
 
-      onMouseLeave.tooltipBox = tooltipBox;
-      onMouseLeave.element = this;
-      this.addEventListener("mouseleave", onMouseLeave);
-    }
+function onMouseOver() {
+  const tooltipBox = criartoolTipBox(this);
 
-    const onMouseLeave = {  //6
-      //PODEMOS TAMBÉM USAR OBJETOS COMO CALLBACK
-      handleEvent() {
-        //PRECISAMOS USAR ESSE MÉTODO PARA FUNCIONAR
-        this.tooltipBox.remove();
-        this.element.removeEventListener("mouseleave", onMouseLeave);
-        this.element.removeEventListener("mousemove", onMouseMove);
-      },
-    };
+  onMouseMove.tooltipBox = tooltipBox;
+  this.addEventListener("mousemove", onMouseMove);
 
-    const onMouseMove = { //5
-      handleEvent(event) {
-        this.tooltipBox.style.top = event.pageY + 20 + "px";
-        this.tooltipBox.style.left = event.pageX + 20 + "px";
-      },
-    };
+  onMouseLeave.tooltipBox = tooltipBox;
+  onMouseLeave.element = this;
+  this.addEventListener("mouseleave",onMouseLeave)
+}
 
-    //CRIANDO A tooltipBox NO HTML!!!!
-    function criartooltipBox(element) { //3
-      const tooltipBox = document.createElement("div");
-      const text = element.getAttribute("aria-label");
-      tooltipBox.classList.add("tooltip");
-      tooltipBox.innerText = text;
-      document.body.appendChild(tooltipBox); //DEIXAR ESSA BOX LÁ NO FIM DO HTML
-      return tooltipBox;
-    }
-    //CRIANDO A tooltipBox NO HTML!!!!
-
-    tooltips.forEach((item) => { //2
-      item.addEventListener("mouseover", onMouseOver);
-    });
-
-    // tooltipBox.style.top = event.pageY + 'px'; //PARA POSICIONAR O BOX DE ACORDO COM O MEU MOUSE EM CIMA!!!!!(TEM QUE TRANSFOMAR EM PX)
-    // O PAGE MOSTRA ONDE O MOUSE ESTÁ EM RELACÃO A PÁGINA WEB
-    //tooltipBox.style.left = event.pageX + 'px'; //PARA POSICIONAR O BOX DE ACORDO COM O MEU MOUSE EM CIMA!!!!!(TEM QUE TRANSFOMAR EM PX)
-    // O PAGE MOSTRA ONDE O MOUSE ESTÁ EM RELACÃO A PÁGINA WEB
+const onMouseLeave = {
+  handleEvent(){
+    this.tooltipBox.remove();
+    this.element.removeEventListener("mousemove", onMouseMove);
+    this.element.removeEventListener("mouseleave", onMouseLeave);
   }
 }
+
+const onMouseMove = {
+  handleEvent(event) {
+    this.tooltipBox.style.top = event.pageY + 20 + "px";
+    this.tooltipBox.style.left = event.pageX + 20 + "px";
+  },
+};
+
+function criartoolTipBox(element) {
+  const toolTipBox = document.createElement("div");
+  const text = element.getAttribute("aria-label");
+  toolTipBox.classList.add("tooltip");
+  toolTipBox.innerText = text;
+  document.body.appendChild(toolTipBox);
+  return toolTipBox;
+}
+
+tooltips.forEach((item) => {
+  item.addEventListener("mouseover", onMouseOver);
+});
