@@ -17,7 +17,7 @@ export default function initDropdownMenu() {
 
       outsideCLick(this, ["touchstart", "click"], () => {
         this.classList.remove("active");
-      });
-    }
-  }
+      });
+    }
+  }
 }

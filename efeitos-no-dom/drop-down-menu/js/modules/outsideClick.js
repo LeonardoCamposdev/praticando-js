@@ -16,6 +16,6 @@ export default function outsideCLick(element, events, callback) {
         html.removeEventListener(userEvent, handleOutsideClick);
       });
       callback();
-    }
-  }
+    }
+  }
 }
