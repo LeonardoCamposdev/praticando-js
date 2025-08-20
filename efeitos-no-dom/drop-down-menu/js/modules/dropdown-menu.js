@@ -8,7 +8,7 @@ function handleClick(event){
   event.preventDefault();
   this.classList.add('active');
 
-  outsideCLick(this, 'click', () =>{
+  outsideCLick(this, ['click'], () =>{
     this.classList.remove('active');
   })
 }
