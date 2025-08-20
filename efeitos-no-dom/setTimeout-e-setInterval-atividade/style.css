@@ -5,3 +5,8 @@ body{
 body.active{
   background-color: red;
 }
+
+.tempo{
+  display: block;
+  margin: 20px;
+}
