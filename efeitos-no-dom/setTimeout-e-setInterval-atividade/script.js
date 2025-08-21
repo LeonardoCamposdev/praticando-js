@@ -10,14 +10,31 @@
 const iniciar = document.querySelector('.iniciar');
 const pausar = document.querySelector('.pausar');
 const tempo = document.querySelector('.tempo')
+  pausar.disabled = true;
 
 let  i = 0;
+let timer;
 function startCronometro(){
-  tempo.innerText = 0;
+  timer = setInterval(()=>{
+    tempo.innerText = i++;
+  },100)
+  iniciar.disabled = true;
+   pausar.disabled = false;
 }
 
-function teste(){
-  console.log('teste')
+function pauseCronometro(){
+  clearInterval(timer);
+  iniciar.disabled = false;
+
 }
+
+function cleanCronometro(){
+  tempo.innerText = 0;
+  i = i.innerText = 0;
+   pausar.disabled = true;
+}
+
 
 iniciar.addEventListener('click',startCronometro);
+pausar.addEventListener('click',pauseCronometro);
+pausar.addEventListener('dblclick',cleanCronometro);
