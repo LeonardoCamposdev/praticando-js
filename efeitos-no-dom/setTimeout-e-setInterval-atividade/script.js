@@ -31,7 +31,6 @@ function pauseCronometro(){
 function resetCronometro(){
   tempo.innerText = 0;
   i = 0;
-
 }
 
 iniciar.addEventListener('click', startCronometro);
