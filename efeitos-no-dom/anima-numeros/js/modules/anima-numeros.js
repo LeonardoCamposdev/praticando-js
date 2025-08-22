@@ -2,21 +2,20 @@ export default function initAnimaNumeros(){
 
 }
 
-
 const numeros = document.querySelectorAll('[data-numero]');
-
 
 numeros.forEach((numero)=>{
   const total = +numero.innerText;
-  const incremento = Math.floor(total / 100);
-
+  const incremento = Math.floor(total / 100)
+  
   let start = 0;
-  const timer = setInterval(() =>{
+  const timer = setInterval(()=>{
     start = start + incremento;
-    numero.innerText =+ start;
+    numero.innerText = start;
     if(start > total){
-      clearInterval(timer);
-      numero.innerText = total;
+      clearInterval(timer)
     }
-  },25 * Math.random())
+  },25 * Math.random());
 })
+
+
