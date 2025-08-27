@@ -46,6 +46,25 @@ function handleChange(event){
   const value = event.target.value;
 
   handleStyle[name](value);
+  showCss()
+  saveValues(name,value)
+}
+
+function saveValues(name,value){
+  localStorage[name] = value;
+}
+
+function setValues(){
+  const properties = Object.keys(localStorage);
+  properties.forEach((propertie) =>{
+    form.elements.value = 
+  })
+}
+setValues()
+
+
+function showCss(){ 
+  cssText.innerHTML = '<span>' + btn.style.cssText.split('; ').join('</span><span>');
 }
 
 form.addEventListener('change',handleChange);
