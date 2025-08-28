@@ -57,11 +57,12 @@ function saveValues(name,value){
 function setValues(){
   const properties = Object.keys(localStorage);
   properties.forEach((propertie) =>{
-    form.elements.value = 
+    form.elements[propertie].value = localStorage[propertie]
+    handleStyle[propertie](localStorage[propertie])
   })
 }
-setValues()
 
+setValues();
 
 function showCss(){ 
   cssText.innerHTML = '<span>' + btn.style.cssText.split('; ').join('</span><span>');
