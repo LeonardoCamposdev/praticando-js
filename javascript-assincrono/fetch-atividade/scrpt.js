@@ -1,58 +1,55 @@
 // Utilizando a API https://viacep.com.br/ws/${CEP}/json/
 // crie um formulário onde o usuário pode digitar o cep
-// e o endereço completo é retornado ao clicar em buscar
-const input = document.querySelector(".input");
+// o endereço completo é retornado ao clicar em buscar
 const btnCep = document.querySelector(".btnCep");
+const input = document.querySelector(".input");
 const resultadoCep = document.querySelector(".resultadoCep");
 
-function handleClick(event) {
+function mostrarCep(event) {
   event.preventDefault();
-  const cep = input.value;
-  buscarCep(cep);
+  buscarCep(`https://viacep.com.br/ws/${input.value}/json/`);
 }
 
-function buscarCep(cep) {
-  fetch(`https://viacep.com.br/ws/${cep}/json/`)
-    .then((response) => response.text())
-    .then((corpo) => {
-      resultadoCep.innerText = corpo;
-    });
+async function buscarCep(cep) {
+  const responseCep = await fetch(cep);
+  const responseText = await responseCep.text();
+  resultadoCep.innerText = responseText;
 }
 
-btnCep.addEventListener("click", handleClick);
+btnCep.addEventListener("click", mostrarCep);
 
 // Utilizando a API https://blockchain.info/ticker
 // retorne no DOM o valor de compra da bitcoin and reais.
 // atualize este valor a cada 30s
-const valorBitcoin = document.querySelector('.valorBitcoin');
+const mostrarValorBitcoin = document.querySelector('.valorBitcoin');
 
-function valueBtc(){
-  fetch('https://blockchain.info/ticker')
-  .then(response => response.json())
-  .then((corpo) =>{
-    valorBitcoin.innerText = 'o valor do Bitcoin no Brasil está. R$ ' + corpo.BRL.buy;
-  })
+async function valorBitcoin() {
+  const responseBitcoin = await fetch("https://blockchain.info/ticker");
+  const responseJson = await responseBitcoin.json();
+  const valorCompra = +responseJson.BRL.buy;
+  mostrarValorBitcoin.innerText = `o valor do bitcoin em real brasileiro está em ${valorCompra}`;
 }
-valueBtc()
-setInterval(valueBtc, 1000 * 30);
+
+setInterval(() =>{
+  valorBitcoin();
+},300)
+
 
 // Utilizando a API https://api.chucknorris.io/jokes/random
 // retorne uma piada randomica do chucknorris, toda vez que
 // clicar em próxima
-const piadaRandom = document.querySelector('.piadaRandom');
-const btnPiada = document.querySelector('.btnPiada');
+const btnPiada = document.querySelector(".btnPiada");
+const piadaRadom = document.querySelector(".piadaRandom");
 
-function newPiada(event){
+function novaPiada(event) {
   event.preventDefault();
-  ativarPiada()
+  buscarPiada("https://api.chucknorris.io/jokes/random");
 }
 
-function ativarPiada(){
-  fetch('https://api.chucknorris.io/jokes/random')
-  .then(response => response.json())
-  .then((corpo) =>{
-    console.log(corpo.value)
-    piadaRandom.innerText = corpo.value;
-  })
+async function buscarPiada(piada) {
+  const responsePiada = await fetch(piada);
+  const responseJson = await responsePiada.json();
+  piadaRadom.innerText = responseJson.value;
 }
-btnPiada.addEventListener('click',newPiada);
+
+btnPiada.addEventListener("click", novaPiada);
