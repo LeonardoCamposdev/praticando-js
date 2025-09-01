@@ -32,7 +32,8 @@ async function valorBitcoin() {
 
 setInterval(() =>{
   valorBitcoin();
-},300)
+},30000)
+
 
 
 // Utilizando a API https://api.chucknorris.io/jokes/random
