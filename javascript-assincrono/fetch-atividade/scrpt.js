@@ -7,12 +7,11 @@ const resultadoCep = document.querySelector(".resultadoCep");
 
 function mostrarCep(event) {
   event.preventDefault();
-  const cep = input.value;
-  buscarCep(cep);
+  buscarCep(`https://viacep.com.br/ws/${input.value}/json/`);
 }
 
 async function buscarCep(cep) {
-  const responseCep = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
+  const responseCep = await fetch(cep);
   const responseText = await responseCep.text();
   resultadoCep.innerText = responseText;
 }
@@ -28,11 +27,14 @@ async function valorBitcoin() {
   const responseBitcoin = await fetch("https://blockchain.info/ticker");
   const responseJson = await responseBitcoin.json();
   const valorCompra = +responseJson.BRL.buy;
-  mostrarValorBitcoin.innerText = `o valor do bitcoin em real brasileiro está em R$  ${ valorCompra}`;
+  mostrarValorBitcoin.innerText = `o valor do bitcoin em real brasileiro está em ${valorCompra}`;
 }
 
-//setInterval(valorBitcoin, 1000 * 30)
-valorBitcoin()
+setInterval(() =>{
+  valorBitcoin();
+},30000)
+
+
 
 // Utilizando a API https://api.chucknorris.io/jokes/random
 // retorne uma piada randomica do chucknorris, toda vez que
