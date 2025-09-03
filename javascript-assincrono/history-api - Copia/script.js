@@ -1,15 +1,15 @@
 const links = document.querySelectorAll('a');
 
-function handleClick(event){
+function handleCLick(event){
   event.preventDefault();
   const url = event.target.href;
-  pageFetch(url);
+  fetchPage(url);
   window.history.pushState(null,null,url);
 }
 
-async function pageFetch(url) {
-  const responseFetch = await fetch(url);
-  const pageText = await responseFetch.text();
+async function fetchPage(url) {
+  const pageResponse = await fetch(url);
+  const pageText = await pageResponse.text();
   changePage(pageText);
 }
 
@@ -19,15 +19,14 @@ function changePage(newText){
   
   const oldContent = document.querySelector('.content');
   const newContent = newHtml.querySelector('.content');
-  oldContent.innerHTML = newContent.innerHTML;
 
-  document.title = newHtml.querySelector('title').innerText;
+  oldContent.innerHTML = newContent.innerHTML;
 }
 
 window.addEventListener('popstate', () =>{
-  pageFetch(window.location.pathname)
+  fetchPage(window.location.pathname);
 })
 
 links.forEach((link) =>{
-  link.addEventListener('click', handleClick);
+  link.addEventListener('click', handleCLick);
 })
