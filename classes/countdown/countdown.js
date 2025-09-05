@@ -12,7 +12,7 @@ export default class Countdown {
   }
 
   get _timeStampDiff() {
-    return this._futureDate.getTime() - this._actualDate.getTime();
+    return this._futureDate.getTime() - this._actualDate.getTime() ;
   }
 
   get days() {
@@ -31,16 +31,17 @@ export default class Countdown {
     return Math.floor(this._timeStampDiff / 1000);
   }
 
-  get total() {
+  get total(){
     const days = this.days;
-    const hours = this.hours % 24; // vai dividir o resultado por 24 e dar o restante o número quebrado
+    const hours = this.hours % 24;
     const minutes = this.minutes % 60;
-    const seconds = this.seconds % 60;
+    const seconds = this.seconds % 60; 
+
     return{
       days,
       hours,
       minutes,
-      seconds,
+      seconds
     }
   }
 }
