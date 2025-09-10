@@ -1,12 +1,11 @@
+import initAnimaNumeros from './anima-numeros.js';
 export default function initFetchAnimais(){
-
-}
-
-async function fetchAnimais(animais){
-  const responseAnimais = await fetch(animais);
+  async function fetchAnimais(url){
+  const responseAnimais = await fetch(url);
   const animaisJSON = await responseAnimais.json();
   animaisJSON.forEach((animal)=>{
     animaisDom(animal)
+    initAnimaNumeros();
   })
 }
 
@@ -20,3 +19,5 @@ function animaisDom(animal){
 }
 
 fetchAnimais('./animaisapi.json');
+}
+
