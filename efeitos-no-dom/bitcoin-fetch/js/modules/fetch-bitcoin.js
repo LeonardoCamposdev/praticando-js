@@ -1,18 +1,17 @@
-export default function initFetchBitcoin() {
-  try {
-    const doeBtc = document.querySelector("[data-bitcoin]");
-    async function fetchBitcoin(url) {
-      const fetchResponse = await fetch(url);
-      const bitcoinJSON = await fetchResponse.json();
-      const bitcoinBRL = (1000 / bitcoinJSON.BRL.sell).toFixed(4);
-  
-      doeBtc.innerHTML = bitcoinBRL;
-    }
-  
-    fetchBitcoin("https://blockchain.info/ticker");
-  } catch (erro) {
-    console.log(erro);
+export default function initFetchBitcoin() {}
+
+async function fetchBtc(url) {
+  try{
+    const responseBtc = await fetch(url);
+    const BtcJSON = await responseBtc.json();
+    const valorCompra = (1000 / BtcJSON.BRL.sell).toFixed(4);
+
+    const valorDoacao = document.querySelector("[data-bitcoin]");
+    valorDoacao.innerText = valorCompra;
   }
-  
+  catch{
+    console.log('estamos passando por uma instabilidade momentanea em relação a doação de bitcoin.')
+  }
 }
 
+fetchBtc("https://blockchain.info/ticker");
