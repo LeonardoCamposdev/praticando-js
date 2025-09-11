@@ -1,20 +1,20 @@
 // Remova o erro
-const priceNumber = n => +n.replace('R$', '').replace(',', '.'); //FUNCTION EXPRESSION
+const priceNumber = n => +n.replace('R$', '').replace(',', '.');
 console.log(priceNumber('R$ 99,99'));
-
 // Crie uma IIFE e isole o escopo
 // de qualquer código JS.
-const meuNome = 'Ravizinho Mu';
-(()=>{
-  const meuNome = 'Leozinho';
-  console.log(meuNome)
-})();//ativando a função
-console.log(meuNome); 
+const jiuJtisu = 'prometo que vou melhorar!!!';
 
+(() =>{
+  const jiuJtisu = 'estou só apanhando mas vou me esforçar!!!';
+  console.log(jiuJtisu)
+})()
+
+console.log(jiuJtisu)
 // Como podemos utilizar
 // a função abaixo.
 const active = callback => callback();
 
 active(function(){
-  console.log('teste ativando');
+  console.log('xeqselee')
 })
