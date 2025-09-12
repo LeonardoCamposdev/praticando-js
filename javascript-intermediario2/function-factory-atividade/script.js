@@ -1,77 +1,54 @@
-function $$(selectedElements){
-  const elements = document.querySelectorAll(selectedElements);
+function criarPessoa(nome, sobrenome){
+  const nomeCompleto = `${nome} ${sobrenome}`;
 
-  function hide(){
-    elements.forEach((element)=>{
-      element.style.display = 'none';
-    })
-    return this;
+  function andar(){
+    return `${nomeCompleto} ANDOU`; 
   }
 
-
-  function show(){
-    elements.forEach((element) =>{
-      element.style.display = 'initial';
-    })
-    return this;
+  function nadar(){
+    return `${nomeCompleto} NADOU`;
   }
 
-  function elementBgColor(color){
-      elements.forEach((element) =>{
-        element.style.backgroundColor = color;
-      })
-      return this;
+  return{
+    nome,
+    sobrenome,
+    andar,
+    nadar,
   }
-
-  function elementColor(color){
-    elements.forEach((element) =>{
-      element.style.color = color;
-    })
-    return this;
 }
 
-  function addClass(className){
-    elements.forEach((element) =>{
-      element.classList.add(className);
-    })
+const leonardo = criarPessoa('Leonardo', 'Campos');
+
+console.log(leonardo.andar());
+console.log(leonardo.nadar());
+
+function $$(selectedElement){
+  const element = document.querySelector(selectedElement);
+
+  function addClass(classe){
+    element.classList.add(classe);
     return this;
   }
 
-  function fontSize(){
-    elements.forEach((element) =>{
-      element.style.fontSize = 4 + 'rem';
-    })
+  function buttonBG(backgroundColor){
+    element.style.backgroundColor = backgroundColor;
     return this;
   }
 
-  function functionCallBack(onEvent, callback){
-    elements.forEach((element) =>{
-      element.addEventListener(onEvent,callback);
-    })
+    function buttonColor(color){
+    element.style.color = color;
+    return this;
   }
 
-
-  return {
-    hide,
-    show,
-    elementColor,
-    elementBgColor,
+  return{
+    element,
     addClass,
-    fontSize,
-    functionCallBack,
+    buttonBG,
+    buttonColor,
   }
 }
 
-function testando(event){
-  const paragrafos = document.querySelectorAll('p');
-  paragrafos.forEach((p) =>{
-    p.style.color = 'blue';
-  })
 
-}
+const button = $$('button');
 
-const buttons = new $$('button');
-buttons.hide().show().elementBgColor('lightgreen').addClass('activePapai').functionCallBack('click',testando);
-
-const testeParagrafo = new $$('p');
-testeParagrafo.elementColor('red').addClass('testeActive').fontSize();
+button.addClass('ativooo').buttonBG('blue').buttonColor('white');
