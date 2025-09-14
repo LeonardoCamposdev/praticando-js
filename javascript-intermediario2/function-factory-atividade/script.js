@@ -18,7 +18,7 @@ function criarPessoa(nome, sobrenome){
 }
 
 const leonardo = criarPessoa('Leonardo', 'Campos');
-
+cost  
 console.log(leonardo.andar());
 console.log(leonardo.nadar());
 
