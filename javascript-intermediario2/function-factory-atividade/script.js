@@ -40,6 +40,7 @@ function $$(selectedElement){
     return this;
   }
 
+
   return{
     element,
     addClass,
