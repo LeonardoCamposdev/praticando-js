@@ -1,27 +1,47 @@
-// Extraia o backgroundColor, color e margin do btn
-const btn = document.querySelector('button');
-const btnStyles = getComputedStyle(btn);
-
-const {backgroundColor, color, margin} = btnStyles;
-
-console.log(backgroundColor);
-console.log(color);
-console.log(margin);
-
-// Troque os valores das variáveis abaixo
-let cursoAtivo = 'JavaScript';
-let cursoInativo = 'HTML';
-
-[cursoAtivo, cursoInativo] = [ cursoInativo, cursoAtivo]; //TROCOU OS VALORES
-console.log(cursoAtivo);
-console.log(cursoInativo);
-
-// Corrija o erro abaixo
-const cachorro = {
-  nome: 'Bob',
-  raca: 'Labrador',
-  cor: 'Amarelo'
+const carro = {
+  marca: 'gol',
+  ano: 2023,
+  portas: 4
 }
 
-const {cor: bobCor} = cachorro;
-console.log(bobCor);
+const {marca, ano, portas} = carro;
+
+console.log(marca);
+console.log(ano);
+console.log(portas);
+
+
+const cliente = {
+  nome: 'Leonardo',
+  compras: {
+    digitais:{
+      livros: ['Livro1', 'Livro2'],
+      videos: ['Video JS', 'Video HTML']
+    },
+    fisicas:{
+      cadernos: ['caderno 1']
+    }
+  }
+}
+
+const {digitais,fisicas, digitais:{livros,videos}} = cliente.compras;
+const {cadernos} = cliente.compras.fisicas;
+
+console.log(digitais);
+
+console.log(livros);
+console.log(videos);
+console.log(cadernos);
+
+
+const cliente2 = {
+  nome: 'Ravi',
+  compras: 10
+}
+
+const {nome: nomeCliente, compras: comprasCliente, email = 'Leonardo.kiss66@live.com', cpf} = cliente2;
+
+console.log(nomeCliente);
+console.log(comprasCliente);
+console.log(email);
+console.log(cpf);
