@@ -1,41 +1,31 @@
 function sorteio(premio,...ganhadores){
-  console.log(arguments);
-  console.log(ganhadores);
-  ganhadores.forEach((ganhador)=>{
-    console.log(ganhador + 'ganhou um ' + premio);
+  ganhadores.forEach((ganhador) =>{
+    console.log(`${ganhador} ganhou ${premio}`);
   })
+  console.log(ganhadores);
 }
 
-sorteio('Creta ','Joãozin ','Leozin ','Bastiãozin ','Ravizin');
+sorteio('uma Milhar ', 'Leo', 'Ravi', 'Luis', 'Palloma', 'Edileuza');
 
 
-const frutas = ['Banana','Maça','Melancia'];
-const legumes = ['Cenoura','Beterraba'];
+const frutas = ['Banana', 'Uva', 'Morango'];
+const instrumentos = ['Bateria', 'Violão', 'Guitarra'];
 
-const comidas = [...legumes, 'Pizza', ...frutas];
-console.log(comidas);
+const palavras = [...frutas, 'XesqdeleBrelele', ...instrumentos];
+console.log(palavras);
 
-const comidas2 = [frutas, legumes];
-console.log(comidas2);
+const listaNumeros = [1,23,532,211,45,56,65];
 
-
-const numeroMaximo = Math.max(1,4,3,5,7,153,675,777);
-console.log(numeroMaximo);
-
-const listaNumeros = [1,4,31222222,1235,2347,153,675,777];
-console.log(listaNumeros);
-console.log(Math.max(...listaNumeros));
-console.log(Math.min(...listaNumeros));
-
+const numeroMaximoSpread = Math.max(...listaNumeros);
+console.log(numeroMaximoSpread);
 
 const btns = document.querySelectorAll('button');
-const div = document.querySelectorAll('div');
+console.log(btns);
 
 const btnsArray = [...btns];
 console.log(btnsArray);
 
 
-const frase = 'Isso ai venci papai';
-
-const novasFrases = [...frase];
-console.log(novasFrases);
+const frase = 'Um dia vou ser bom no jiu-jitsu';
+const fraseArray = [...frase];
+console.log(fraseArray);
