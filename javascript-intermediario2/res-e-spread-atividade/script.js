@@ -15,5 +15,5 @@ console.log(redButton);
 const frutas = ['Banana', 'Uva', 'Morango'];
 const comidas = ['Pizza', 'Batata'];
 
-comidas.push(...frutas);
+ comidas.push(...frutas);
 console.log(comidas);
